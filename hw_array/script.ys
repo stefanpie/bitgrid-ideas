@@ -1,0 +1,10 @@
+read_verilog hw.v
+hierarchy -check
+proc
+opt
+write_verilog hw_simple.v
+show -prefix hw_simple_vis -format dot
+synth -flatten
+tee -o hw_stats.txt stat
+write_verilog hw_synth.v
+show -prefix hw_vis -format dot
